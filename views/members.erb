@@ -1,0 +1,16 @@
+<h2>Members</h2>
+
+<div id="member-wrapper">
+  <% @members.each do |member| %>
+
+  <div class="member">
+    <h3><a href="/members/<%= member.id %>"><%= member.forename %></a></h3>
+    <p>DOB: <%= member.dob %></p>
+    <p><a href="/members/<%= member.id %>/edit">edit</a></p>
+    <form method="post" action="/members/<%= member.id %>/delete">
+      <input type="submit" value="Delete"/>
+    </form>
+  </div>
+
+  <% end %>
+</div>
