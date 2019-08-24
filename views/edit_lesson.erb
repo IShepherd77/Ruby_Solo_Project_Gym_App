@@ -1,0 +1,63 @@
+<h2>Edit Class</h2>
+
+<form method="post" action="/lessons/<%= @lesson.id %>">
+
+  <div>
+    <label for="name">Name:</label>
+    <input
+    type="text"
+    name="name"
+    id="name"
+    value="<%= @lesson.name %>"
+    />
+  </div>
+
+  <div>
+    <label for="capacity">Capacity:</label>
+    <input
+    type="text"
+    name="capacity"
+    id="capacity"
+    value="<%= @lesson.capacity %>"
+    />
+  </div>
+
+  <div>
+    <label for="lesson_date">Class Date:</label>
+    <input
+    type="text"
+    name="lesson_date"
+    id="lesson_date"
+    value="<%= @lesson.lesson_date.strftime('%d/%m/%Y') %>"
+    />
+  </div>
+
+
+   <div>
+    <label for="start_hour">Start Time:</label>
+    <select name="start_hour" id="start_hour">
+      <% (0..23).each do |hour| %>
+        <option value="<%= hour %>" <%= hour == @lesson.start_time.hour ? 'selected' : '' %> ><%= hour %></option>
+      <% end %>
+    </select>:
+    <select name="start_min" id="start_min">
+      <option value="0" <%= 0 == @lesson.start_time.min ? 'selected' : '' %> >00</option>
+      <option value="15" <%= 15 == @lesson.start_time.min ? 'selected' : '' %> >15</option>
+      <option value="30" <%= 30 == @lesson.start_time.min ? 'selected' : '' %> >30</option>
+      <option value="45" <%= 45 == @lesson.start_time.min ? 'selected' : '' %> >45</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="duration">Duration:</label>
+    <input
+    type="text"
+    name="duration"
+    id="duration"
+    value="<%= @lesson.duration %>"
+    />
+  </div>
+
+  <input type='submit' value="Save Changes">
+
+</form>

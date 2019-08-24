@@ -22,23 +22,24 @@ post '/members' do # create
   redirect to '/members'
 end
 
-post '/members/:id/delete' do
-  member = Member.find(params['id'])
-  member.delete
-  redirect to '/members'
-end
-
 get '/members/:id/edit' do # edit
   @member = Member.find( params[:id] )
   # binding.pry
   erb( :edit_member )
 end
 
+
 post '/members/:id' do # update
   # binding.pry
   params['dob']=Date.strptime(params['dob'],'%d/%m/%Y')
   params['premium']=params['premium']== 'true'
   Member.new( params ).update
+  redirect to '/members'
+end
+
+post '/members/:id/delete' do
+  member = Member.find(params['id'])
+  member.delete
   redirect to '/members'
 end
 
@@ -57,5 +58,25 @@ post '/lessons' do # create
   params['start_time'] = Time.new(date_val.year, date_val.month, date_val.mday, params['start_hour'].to_i, params['start_min'].to_i)
   @lesson = Lesson.new( params )
   @lesson.save()
+  redirect to '/lessons'
+end
+
+get '/lessons/:id/edit' do # edit
+  @lesson = Lesson.find( params[:id] )
+  # binding.pry
+  erb( :edit_lesson )
+end
+
+post '/lessons/:id' do # update
+  date_val = Date.strptime(params['lesson_date'],'%d/%m/%Y')
+  params['lesson_date'] = date_val
+  params['start_time'] = Time.new(date_val.year, date_val.month, date_val.mday, params['start_hour'].to_i, params['start_min'].to_i)
+  Lesson.new( params ).update
+  redirect to '/lessons'
+end
+
+post '/lessons/:id/delete' do
+  lesson = Lesson.find(params['id'])
+  lesson.delete
   redirect to '/lessons'
 end

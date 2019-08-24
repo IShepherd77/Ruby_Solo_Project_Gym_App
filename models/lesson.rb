@@ -54,7 +54,7 @@ def self.find(id)
 end
 
 def self.all()
-  sql = "SELECT * FROM lessons"
+  sql = "SELECT * FROM lessons ORDER BY lesson_date + start_time ASC"
   lesson_data = SqlRunner.run(sql) #array of hash objects
   lessons = map_items(lesson_data)
   return lessons
