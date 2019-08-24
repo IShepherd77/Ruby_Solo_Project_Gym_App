@@ -3,6 +3,7 @@ require_relative('../models/lesson')
 require 'date'
 
 Member.delete_all
+Lesson.delete_all
 
 
 member1 = Member.new({'forename' => 'Alan', 'surname' => 'Paterson', 'dob' => Date.new(1978,9,19), 'premium' => false, 'phone' => '07876505333', 'email' => 'alanP@test.com'})
