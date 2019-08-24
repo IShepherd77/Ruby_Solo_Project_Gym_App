@@ -1,0 +1,41 @@
+<h2>Edit Member</h2>
+
+<form method="post" action="/members/<%= @member.id %>">
+
+  <label for="forename">Forename:</label>
+  <input
+  type="text"
+  name="forename"
+  id="forename"
+  value="<%= @member.forename %>"
+  />
+
+  <label for="surname">Surname:</label>
+  <input
+  type="text"
+  name="surname"
+  id="surname"
+  value="<%= @member.surname %>"
+  />
+
+
+
+  <label for="dob">DOB:</label>
+  <!-- convert ruby date object UK date format  -->
+  <input
+  type="text"
+  name="dob"
+  id="dob"
+  value="<%= @member.dob.strftime('%d/%m/%Y') %>"
+  />
+
+
+
+  <!-- @dob = options['dob']
+  @premium = options['premium']
+  @phone = options['phone']
+  @email = options['email'] -->
+
+
+  <input type='submit' value="Edit Member">
+</form>
