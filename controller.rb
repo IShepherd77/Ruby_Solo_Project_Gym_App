@@ -46,3 +46,16 @@ get '/lessons' do #display all lessons
   @lessons = Lesson.all
   erb(:lessons)
 end
+
+get '/lessons/new' do # new
+  erb( :add_lesson )
+end
+
+post '/lessons' do # create
+  date_val = Date.strptime(params['lesson_date'],'%d/%m/%Y')
+  params['lesson_date'] = date_val
+  params['start_time'] = Time.new(date_val.year, date_val.month, date_val.mday, params['start_hour'].to_i, params['start_min'].to_i)
+  @lesson = Lesson.new( params )
+  @lesson.save()
+  redirect to '/lessons'
+end
