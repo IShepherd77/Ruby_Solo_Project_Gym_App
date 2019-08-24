@@ -2,49 +2,66 @@
 
 <form method="post" action="/members/<%= @member.id %>">
 
+  <div>
+    <label for="forename">Forename:</label>
+    <input
+    type="text"
+    name="forename"
+    id="forename"
+    value="<%= @member.forename %>"
+    />
+  </div>
+
+  <div>
+    <label for="surname">Surname:</label>
+    <input
+    type="text"
+    name="surname"
+    id="surname"
+    value="<%= @member.surname %>"
+    />
+  </div>
+
+  <div>
+    <label for="dob">DOB:</label>
+    <!-- convert ruby date object UK date format  -->
+    <input
+    type="text"
+    name="dob"
+    id="dob"
+    value="<%= @member.dob.strftime('%d/%m/%Y') %>"
+    />
+  </div>
 
 
-  <label for="forename">Forename:</label>
-  <input
-  type="text"
-  name="forename"
-  id="forename"
-  value="<%= @member.forename %>"
-  />
+  <div>
+    <label for="premium">Membership:</label>
+    <select name="premium" id="premium">
+      <option value="false" <%= @member.premium ? '' : 'selected' %> >Standard</option>
+      <option value="true" <%= @member.premium ? 'selected' : '' %> >Premium</option>
+    </select>
+  </div>
 
-  <label for="surname">Surname:</label>
-  <input
-  type="text"
-  name="surname"
-  id="surname"
-  value="<%= @member.surname %>"
-  />
+  <div>
+    <label for="phone">Phone:</label>
+    <input
+    type="text"
+    name="phone"
+    id="phone"
+    value="<%= @member.phone %>"
+    />
+  </div>
 
+  <div>
+    <label for="email">Email:</label>
+    <input
+    type="text"
+    name="email"
+    id="email"
+    value="<%= @member.email %>"
+    />
+  </div>
 
-
-  <label for="dob">DOB:</label>
-  <!-- convert ruby date object UK date format  -->
-  <input
-  type="text"
-  name="dob"
-  id="dob"
-  value="<%= @member.dob.strftime('%d/%m/%Y') %>"
-  />
-
-
-  <label for="premium">Membership:</label>
-  <select name="premium" id="premium">
-  <option value="false" <%= @member.premium ? '' : 'selected' %> >Standard</option>
-  <option value="true" <%= @member.premium ? 'selected' : '' %> >Premium</option>
-  </select>
-
-
-
-  <!-- @dob = options['dob']
-  @premium = options['premium']
-  @phone = options['phone']
-  @email = options['email'] -->
-
-
-  <input type='submit' value="Edit Member">
+  <input type='submit' value="Save Changes">
+  
 </form>

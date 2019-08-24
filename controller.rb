@@ -20,3 +20,11 @@ get '/members/:id/edit' do # edit
   # binding.pry
   erb( :edit_member )
 end
+
+post '/members/:id' do # update
+  # binding.pry
+  params['dob']=Date.strptime(params['dob'],'%d/%m/%Y')
+  params['premium']=params['premium']== 'true'
+  Member.new( params ).update
+  redirect to '/members'
+end
