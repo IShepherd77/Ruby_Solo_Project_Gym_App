@@ -3,6 +3,7 @@ require('sinatra/contrib/all')
 require('pry')
 require_relative('models/member')
 require_relative('models/lesson')
+require_relative('models/booking')
 also_reload('./models/*')
 
 get '/members' do
@@ -60,6 +61,7 @@ end
 get '/lessons/:id' do
   @lesson = Lesson.find( params[:id] )
   @members = Member.find_by_lesson( params[:id])
+  @all_members = Member.all
   erb( :view_lesson )
 end
 
@@ -90,4 +92,10 @@ post '/lessons/:id/delete' do
   lesson = Lesson.find(params['id'])
   lesson.delete
   redirect to '/lessons'
+end
+
+post '/bookings' do # create
+  @booking = Booking.new( params )
+  @booking.save()
+  redirect to ('/lessons/' + params['lesson_id'])
 end
