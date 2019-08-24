@@ -1,5 +1,6 @@
 require_relative('../db/sql_runner')
 require 'date'
+require 'pry'
 
 class Lesson
 
@@ -36,16 +37,18 @@ class Lesson
   @id = id.to_i
 end
 
-#
-# def self.find(id)
-#   sql = "SELECT * FROM members
-#   WHERE id = $1"
-#   values = [id]
-#   result = SqlRunner.run(sql ,values).first
-#   member = Member.new(result)
-#   return member
-# end
-#
+
+def self.find(id)
+  sql = "SELECT * FROM lessons
+  WHERE id = $1"
+  values = [id]
+  result = SqlRunner.run(sql ,values).first
+  # binding.pry
+  lesson = Lesson.new(result)
+  return lesson
+
+end
+
 # def self.all()
 #   sql = "SELECT * FROM members"
 #   member_data = SqlRunner.run(sql) #array of hash objects
