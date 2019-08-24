@@ -5,7 +5,7 @@
 
   <div class="member">
     <h3><%= member.forename %></h3>
-    <p>DOB: <%= member.dob %></p>
+    <p>DOB: <%= member.dob.strftime('%d/%m/%Y') %></p>
     <p><a href="/members/<%= member.id %>/edit">edit</a></p>
     <form method="post" action="/members/<%= member.id %>/delete">
       <input type="submit" value="Delete"/>

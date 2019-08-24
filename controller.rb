@@ -2,6 +2,7 @@ require('sinatra')
 require('sinatra/contrib/all')
 require('pry')
 require_relative('models/member')
+require_relative('models/lesson')
 also_reload('./models/*')
 
 get '/members' do
@@ -39,4 +40,9 @@ post '/members/:id' do # update
   params['premium']=params['premium']== 'true'
   Member.new( params ).update
   redirect to '/members'
+end
+
+get '/lessons' do #display all lessons
+  @lessons = Lesson.all
+  erb(:lessons)
 end
