@@ -1,1 +1,12 @@
-<h2>View Class</h2>
+<h1><%= @lesson.name  %></h1>
+<h2>Signed up Members</h2>
+
+<div id="member-wrapper">
+  <% @members.each do |member| %>
+
+  <div class="member">
+    <p><%= member.forename + member.surname %></p>
+  </div>
+
+  <% end %>
+</div>

@@ -14,9 +14,9 @@ class Booking
 
 
   def save()
-    sql = "INSERT INTO members
+    sql = "INSERT INTO bookings
     (
-      member_id, customer_id
+      member_id, lesson_id
     )
     VALUES
     (

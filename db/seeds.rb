@@ -1,7 +1,9 @@
 require_relative('../models/member')
 require_relative('../models/lesson')
+require_relative('../models/booking')
 require 'date'
 
+Booking.delete_all
 Member.delete_all
 Lesson.delete_all
 
@@ -19,3 +21,11 @@ lesson3 = Lesson.new({'name' => 'Circuit Training', 'capacity' => 15,'lesson_dat
 lesson1.save
 lesson2.save
 lesson3.save
+
+booking1 = Booking.new({'member_id' => member1.id, 'lesson_id' => lesson1.id})
+booking2 = Booking.new({'member_id' => member2.id, 'lesson_id' => lesson1.id})
+booking3 = Booking.new({'member_id' => member2.id, 'lesson_id' => lesson2.id})
+
+booking1.save
+booking2.save
+booking3.save

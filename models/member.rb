@@ -86,4 +86,14 @@ def update()
     SqlRunner.run(sql, values)
   end
 
+  def self.find_by_lesson(lesson_id)
+    sql = "SELECT members.* from members
+    INNER JOIN bookings on members.id  = bookings.member_id
+    WHERE bookings.lesson_id = $1"
+    values = [lesson_id]
+    member_data = SqlRunner.run(sql, values)
+    members = map_items(member_data)
+    return members
+  end
+
 end

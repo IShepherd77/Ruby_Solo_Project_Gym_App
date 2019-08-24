@@ -52,6 +52,17 @@ get '/lessons/new' do # new
   erb( :add_lesson )
 end
 
+get '/lessons/upcoming' do
+  @lessons = Lesson.upcoming()
+  erb(:lessons)
+end
+
+get '/lessons/:id' do
+  @lesson = Lesson.find( params[:id] )
+  @members = Member.find_by_lesson( params[:id])
+  erb( :view_lesson )
+end
+
 post '/lessons' do # create
   date_val = Date.strptime(params['lesson_date'],'%d/%m/%Y')
   params['lesson_date'] = date_val
@@ -79,9 +90,4 @@ post '/lessons/:id/delete' do
   lesson = Lesson.find(params['id'])
   lesson.delete
   redirect to '/lessons'
-end
-
-get '/lessons/upcoming' do
-  @lessons = Lesson.upcoming()
-  erb(:lessons)
 end
