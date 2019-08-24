@@ -2,6 +2,8 @@
 
 <form method="post" action="/members/<%= @member.id %>">
 
+
+
   <label for="forename">Forename:</label>
   <input
   type="text"
@@ -28,6 +30,13 @@
   id="dob"
   value="<%= @member.dob.strftime('%d/%m/%Y') %>"
   />
+
+
+  <label for="premium">Membership:</label>
+  <select name="premium" id="premium">
+  <option value="false" <%= @member.premium ? '' : 'selected' %> >Standard</option>
+  <option value="true" <%= @member.premium ? 'selected' : '' %> >Premium</option>
+  </select>
 
 
 

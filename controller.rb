@@ -17,8 +17,6 @@ end
 
 get '/members/:id/edit' do # edit
   @member = Member.find( params[:id] )
-  #converting database string date to Ruby date object
-  @member.dob=(Date.parse(@member.dob))
-  binding.pry
+  # binding.pry
   erb( :edit_member )
 end

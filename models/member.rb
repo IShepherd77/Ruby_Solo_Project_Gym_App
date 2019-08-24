@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner')
+require 'date'
 
 class Member
 
@@ -13,6 +14,12 @@ class Member
     @premium = options['premium']
     @phone = options['phone']
     @email = options['email']
+    if !([true, false].include? @premium)
+      @premium=(@premium == 't') #converting to BOOLEAN
+    end
+    if @dob.class !=Date
+      @dob=(Date.parse(@dob))#converting database string date to Ruby date object
+    end
   end
 
 
