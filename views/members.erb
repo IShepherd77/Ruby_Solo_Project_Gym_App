@@ -4,7 +4,7 @@
   <% @members.each do |member| %>
 
   <div class="member">
-    <h3><a href="/members/<%= member.id %>"><%= member.forename %></a></h3>
+    <h3><%= member.forename %></h3>
     <p>DOB: <%= member.dob %></p>
     <p><a href="/members/<%= member.id %>/edit">edit</a></p>
     <form method="post" action="/members/<%= member.id %>/delete">

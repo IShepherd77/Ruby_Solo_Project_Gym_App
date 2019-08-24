@@ -9,6 +9,18 @@ get '/members' do
   erb(:members)
 end
 
+get '/members/new' do # new
+  erb( :add_member )
+end
+
+post '/members' do # create
+  params['dob']=Date.strptime(params['dob'],'%d/%m/%Y')
+  params['premium']=params['premium']== 'true'
+  @member = Member.new( params )
+  @member.save()
+  redirect to '/members'
+end
+
 post '/members/:id/delete' do
   member = Member.find(params['id'])
   member.delete

@@ -1,0 +1,62 @@
+<h2>Create Member</h2>
+
+<form method="post" action="/members">
+
+  <div>
+    <label for="forename">Forename:</label>
+    <input
+    type="text"
+    name="forename"
+    id="forename"
+    />
+  </div>
+
+  <div>
+    <label for="surname">Surname:</label>
+    <input
+    type="text"
+    name="surname"
+    id="surname"
+    />
+  </div>
+
+  <div>
+    <label for="dob">DOB:</label>
+    <!-- convert ruby date object UK date format  -->
+    <input
+    type="text"
+    name="dob"
+    id="dob"
+    />
+  </div>
+
+
+  <div>
+    <label for="premium">Membership:</label>
+    <select name="premium" id="premium">
+      <option value="false">Standard</option>
+      <option value="true">Premium</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="phone">Phone:</label>
+    <input
+    type="text"
+    name="phone"
+    id="phone"
+    />
+  </div>
+
+  <div>
+    <label for="email">Email:</label>
+    <input
+    type="text"
+    name="email"
+    id="email"
+    />
+  </div>
+
+  <input type='submit' value="Save Changes">
+
+</form>
