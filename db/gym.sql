@@ -10,7 +10,7 @@ CREATE TABLE lessons (
   capacity INT4,
   lesson_date DATE NOT NULL,
   start_time TIME without time zone NOT NULL,
-  duration INTERVAL NOT NULL
+  duration INT4 NOT NULL
 );
 
 CREATE TABLE members(
