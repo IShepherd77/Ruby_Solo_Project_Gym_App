@@ -60,6 +60,17 @@ def self.all()
   return lessons
 end
 
+#find all upcoming lessons within specified hours
+def self.upcoming()
+  sql = "SELECT * from lessons
+  WHERE ((lesson_date + start_time) >= now())
+  AND ((lesson_date+ start_time) <= (now() + interval '24 hours'))
+  ORDER BY lesson_date+start_time ASC"
+  lesson_data = SqlRunner.run(sql) #array of hash objects
+  lessons = map_items(lesson_data)
+  return lessons
+end
+
 def self.map_items(lesson_data)
   return lesson_data.map { |lesson| Lesson.new(lesson) }
 end

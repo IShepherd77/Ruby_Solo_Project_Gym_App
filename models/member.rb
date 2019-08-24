@@ -50,7 +50,7 @@ def self.find(id)
 end
 
 def self.all()
-  sql = "SELECT * FROM members"
+  sql = "SELECT * FROM members ORDER BY surname"
   member_data = SqlRunner.run(sql) #array of hash objects
   members = map_items(member_data)
   return members

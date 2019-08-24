@@ -43,7 +43,7 @@ post '/members/:id/delete' do
   redirect to '/members'
 end
 
-get '/lessons' do #display all lessons
+get '/lessons' do #display all lessons find all
   @lessons = Lesson.all
   erb(:lessons)
 end
@@ -79,4 +79,9 @@ post '/lessons/:id/delete' do
   lesson = Lesson.find(params['id'])
   lesson.delete
   redirect to '/lessons'
+end
+
+get '/lessons/upcoming' do
+  @lessons = Lesson.upcoming()
+  erb(:lessons)
 end
