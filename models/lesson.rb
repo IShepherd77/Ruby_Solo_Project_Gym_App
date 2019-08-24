@@ -15,9 +15,13 @@ class Lesson
     @start_time = options['start_time']
     @duration = options['duration']
 
-    # if @dob.class !=Date
-    #   @dob=(Date.parse(@dob))#converting database string date to Ruby date object
-    # end
+    if @lesson_date.class !=Date
+      @lesson_date=(Date.parse(@lesson_date))#converting database string date to Ruby date object
+    end
+    if @start_time.class !=Time
+      time_array = @start_time.split(':')
+      @start_time = Time.new(@lesson_date.year, @lesson_date.month, @lesson_date.mday, time_array[0].to_i, time_array[1].to_i)
+    end
   end
 
 
@@ -49,41 +53,41 @@ def self.find(id)
 
 end
 
-# def self.all()
-#   sql = "SELECT * FROM members"
-#   member_data = SqlRunner.run(sql) #array of hash objects
-#   members = map_items(member_data)
-#   return members
-# end
-#
-# def self.map_items(member_data)
-#   return member_data.map { |member| Member.new(member) }
-# end
-#
-# def delete()
-#   sql = "DELETE FROM members
-#   WHERE id = $1"
-#   values = [@id]
-#   SqlRunner.run(sql, values)
-# end
-#
+def self.all()
+  sql = "SELECT * FROM lessons"
+  lesson_data = SqlRunner.run(sql) #array of hash objects
+  lessons = map_items(lesson_data)
+  return lessons
+end
+
+def self.map_items(lesson_data)
+  return lesson_data.map { |lesson| Lesson.new(lesson) }
+end
+
+def delete()
+  sql = "DELETE FROM lessons
+  WHERE id = $1"
+  values = [@id]
+  SqlRunner.run(sql, values)
+end
+
 def self.delete_all()
   sql = "DELETE FROM lessons"
   SqlRunner.run(sql)
 end
-#
-# def update()
-#     sql = "UPDATE members
-#     SET
-#     (
-#       forename, surname, dob, premium, phone, email
-#     ) =
-#     (
-#       $1, $2, $3, $4, $5, $6
-#     )
-#     WHERE id = $7"
-#     values = [@forename, @surname, @dob, @premium, @phone, @email, @id]
-#     SqlRunner.run(sql, values)
-#   end
+
+def update()
+    sql = "UPDATE lessons
+    SET
+    (
+      name, capacity, lesson_date, start_time, duration
+    ) =
+    (
+      $1, $2, $3, $4, $5
+    )
+    WHERE id = $6"
+    values = [@name, @capacity, @lesson_date, @start_time, @duration, @id]
+    SqlRunner.run(sql, values)
+  end
 
 end
