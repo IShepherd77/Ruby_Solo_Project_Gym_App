@@ -1,17 +1,6 @@
 <h1><%= @lesson.name  %></h1>
 <h2>Members signed up for class</h2>
 
-<div id="members-wrapper">
-  <% @members.each do |member| %>
-
-  <div class="member">
-    <p><%= member.forename + member.surname %></p>
-  </div>
-
-  <% end %>
-
-</div>
-
 <div id="new-member-wrapper">
 
   <form method="post" action="/bookings">
@@ -22,6 +11,16 @@
       <% end %>
     </select>
     <input type="hidden" name="lesson_id" value="<%= @lesson.id %>">
-      <input type='submit' value="Add Member">
+    <input type='submit' value="Add Member">
   </form>
+</div>
+
+<br>
+
+<div id="members-wrapper">
+  <% @members.each do |member| %>
+  <div class="member">
+    <p><%= member.forename + member.surname %></p>
+  </div>
+  <% end %>
 </div>

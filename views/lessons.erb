@@ -8,11 +8,12 @@
     <p>Capacity: <%= lesson.capacity %></p>
     <p>Date: <%= lesson.lesson_date.strftime('%d/%m/%Y') %></p>
     <p>Start Time: <%= lesson.start_time.strftime('%H:%M') %></p>
+    <p>Duration: <%= lesson.duration %> mins</p>
     <p><a href="/lessons/<%= lesson.id %>/edit">Edit</a></p>
     <form method="post" action="/lessons/<%= lesson.id %>/delete">
       <input type="submit" value="Delete"/>
     </form>
-    <p><a href="/lessons/<%= lesson.id %>">View</a></p>
+    <p><a href="/lessons/<%= lesson.id %>">View members on class</a></p>
   </div>
 
   <% end %>

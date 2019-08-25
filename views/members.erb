@@ -5,7 +5,7 @@
 
   <div class="member">
     <h3><%= member.surname.upcase %>, <%= member.forename.capitalize %></h3>
-    <p>Premium Member: <%= member.premium %></p>
+    <p>Membership: <%= member.premium ? 'Premium' : 'Standard'%></p>
     <p>DOB: <%= member.dob.strftime('%d/%m/%Y') %></p>
     <p>Phone: <%= member.phone %></p>
     <p>Email: <%= member.email %></p>
