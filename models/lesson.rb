@@ -19,7 +19,7 @@ class Lesson
       @lesson_date=(Date.parse(@lesson_date))#converting database string date to Ruby date object
     end
     if @start_time.class !=Time
-      time_array = @start_time.split(':')
+      time_array = @start_time.split(':') #converting database string time to Ruby date/time object
       @start_time = Time.new(@lesson_date.year, @lesson_date.month, @lesson_date.mday, time_array[0].to_i, time_array[1].to_i)
     end
   end
@@ -64,8 +64,8 @@ end
 def self.upcoming()
   sql = "SELECT * from lessons
   WHERE ((lesson_date + start_time) >= now())
-  AND ((lesson_date+ start_time) <= (now() + interval '24 hours'))
-  ORDER BY lesson_date+start_time ASC"
+  AND ((lesson_date + start_time) <= (now() + interval '24 hours'))
+  ORDER BY lesson_date + start_time ASC"
   lesson_data = SqlRunner.run(sql) #array of hash objects
   lessons = map_items(lesson_data)
   return lessons

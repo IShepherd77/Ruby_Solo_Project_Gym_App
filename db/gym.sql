@@ -3,7 +3,6 @@ DROP TABLE members;
 DROP TABLE lessons;
 
 
-
 CREATE TABLE lessons (
   id SERIAL8 PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
@@ -22,8 +21,6 @@ CREATE TABLE members(
   phone VARCHAR(255),
   email VARCHAR(255)
 );
-
-
 
 CREATE TABLE bookings (
   id SERIAL8 PRIMARY Key,
