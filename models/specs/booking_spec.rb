@@ -14,29 +14,14 @@ class TestBooking < MiniTest::Test
     assert_equal(9, result)
   end
 
-  # def test_last_name()
-  #   result = @pizza_order.last_name()
-  #   assert_equal("White", result)
-  # end
-  #
-  # def test_topping()
-  #   result = @pizza_order.topping()
-  #   assert_equal("Pepperoni", result)
-  # end
-  #
-  # def test_quantity()
-  #   result = @pizza_order.quantity()
-  #   assert_equal(5, result)
-  # end
-  #
-  # def test_pretty_name()
-  #   result = @pizza_order.pretty_name()
-  #   assert_equal("Walter White", result)
-  # end
-  #
-  # def test_total()
-  #   result = @pizza_order.total()
-  #   assert_equal(50, result)
-  # end
+  def test_member_id()
+    result = @booking.member_id()
+    assert_equal(19, result)
+  end
+
+  def test_lesson_id()
+    result = @booking.lesson_id()
+    assert_equal(30, result)
+  end
 
 end
