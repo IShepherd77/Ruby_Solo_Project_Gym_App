@@ -6,23 +6,23 @@ also_reload('./models/*')
 
 get '/lessons' do #display all lessons find all
   @lessons = Lesson.all
-  erb(:lessons)
+  erb(:'lessons/show')
 end
 
 get '/lessons/new' do # new
-  erb( :add_lesson )
+  erb( :'lessons/new' )
 end
 
 get '/lessons/upcoming' do
   @lessons = Lesson.upcoming()
-  erb(:lessons)
+  erb(:'lessons/show')
 end
 
 get '/lessons/:id' do
   @lesson = Lesson.find( params[:id] )
   @members = Member.find_by_lesson( params[:id])
   @all_members = Member.all
-  erb( :view_lesson )
+  erb( :'lessons/show_by_id')
 end
 
 post '/lessons' do # create
@@ -37,7 +37,7 @@ end
 get '/lessons/:id/edit' do # edit
   @lesson = Lesson.find( params[:id] )
   # binding.pry
-  erb( :edit_lesson )
+  erb( :'lessons/edit' )
 end
 
 post '/lessons/:id' do # update

@@ -6,11 +6,11 @@ also_reload('./models/*')
 
 get '/members' do
   @members = Member.all
-  erb(:members)
+  erb(:'members/show')
 end
 
 get '/members/new' do # new
-  erb( :'members/add_member' )
+  erb( :'members/new' )
 end
 
 post '/members' do # create
@@ -24,7 +24,7 @@ end
 get '/members/:id/edit' do # edit
   @member = Member.find( params[:id] )
   # binding.pry
-  erb( :edit_member )
+  erb( :'members/edit' )
 end
 
 
