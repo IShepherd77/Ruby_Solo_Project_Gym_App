@@ -41,7 +41,6 @@ class Lesson
   @id = id.to_i
 end
 
-
 def self.find(id)
   sql = "SELECT * FROM lessons
   WHERE id = $1"
@@ -50,7 +49,6 @@ def self.find(id)
   # binding.pry
   lesson = Lesson.new(result)
   return lesson
-
 end
 
 def self.all()

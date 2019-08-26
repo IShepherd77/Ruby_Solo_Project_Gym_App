@@ -6,6 +6,10 @@ require_relative('models/lesson')
 require_relative('models/booking')
 also_reload('./models/*')
 
+get '/' do
+  erb (:home)
+end
+
 get '/members' do
   @members = Member.all
   erb(:members)
@@ -30,7 +34,7 @@ get '/members/:id/edit' do # edit
 end
 
 
-post '/members/:id' do # update
+post '/members/:id' do # update /edit
   # binding.pry
   params['dob']=Date.strptime(params['dob'],'%d/%m/%Y')
   params['premium']=params['premium']== 'true'
