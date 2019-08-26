@@ -1,9 +1,27 @@
-/* body {
-  background-color: #feb236
+
+
+#menu {
+
 }
 
-nav#menu {
-  background-color: blue;
-  float: left;
-  display:
-} */
+#menu li {
+  background-color: pink;
+  display: inline;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#menu li a {
+  color: orange;
+  text-decoration: none;
+  float: left; /*this removed pink background */
+  margin-right: 5px;
+  font-family: Arial, sans-serif;
+  border: solid;
+  border-bottom: none;
+  padding: 20px;
+  width: 75px;
+  text-align: center;
+  display: block;
+}
