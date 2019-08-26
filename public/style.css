@@ -1,7 +1,10 @@
 
 
 #menu {
-
+height: 65px;
+border-bottom: 1px solid #000;
+width: auto;
+padding-left: 25px;
 }
 
 #menu li {
@@ -21,7 +24,31 @@
   border: solid;
   border-bottom: none;
   padding: 20px;
-  width: 75px;
+  width: 110px;
+  height: 20px;
   text-align: center;
   display: block;
+  background: #69F;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+#menu li a:hover {
+background-color: #F90;
+color: #FFF; /* white */
+text-shadow: 1px 1px 1px #000; /* black */
+}
+
+li.menu-item a#onlink {
+  background: #FFF;
+  color: black;
+  border-bottom: 1px solid #FFF;
+}
+
+li.menu-item a#onlink:hover {
+background-color: #FFF;
+color: #69F;
+text-shadow: 1px 1px 1px #000;
+
+
 }
