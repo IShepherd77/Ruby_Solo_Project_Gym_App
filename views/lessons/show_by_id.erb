@@ -20,7 +20,8 @@
 <div id="members-wrapper">
   <% @members.each do |member| %>
   <div class="member">
-    <p><%= member.forename + member.surname %></p>
+    <p><%= member.forename.capitalize + " " + member.surname.capitalize %></p>
   </div>
+
   <% end %>
 </div>

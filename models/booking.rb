@@ -41,5 +41,15 @@ class Booking
     SqlRunner.run(sql)
   end
 
+  def delete_member_from_class()
+    sql = "DELETE FROM bookings
+    WHERE member_id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
+
+
+
 
 end
