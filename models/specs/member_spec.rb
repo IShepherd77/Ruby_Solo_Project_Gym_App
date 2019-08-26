@@ -30,7 +30,10 @@ class TestMember < MiniTest::Test
     assert_equal("19/09/1978", result)
   end
 
-
+  def test_member_premium()
+    result = @member.premium()
+    assert_equal(false, result)
+  end
 
   def test_member_phone()
     result = @member.phone()
@@ -41,5 +44,7 @@ class TestMember < MiniTest::Test
     result = @member.email()
     assert_equal("alanP@test.com", result)
   end
+
+
 
 end
