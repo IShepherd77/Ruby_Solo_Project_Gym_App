@@ -12,7 +12,7 @@
     <p>Capacity: <%= lesson.capacity %></p>
     <p><a href="/lessons/<%= lesson.id %>/edit">Edit</a></p>
     <form method="post" action="/lessons/<%= lesson.id %>/delete">
-      <input id="delete" type="submit" value="Delete"/>
+      <input type="submit" value="Delete"/>
     </form>
     <p><a href="/lessons/<%= lesson.id %>">View members on class</a></p>
   </div>
