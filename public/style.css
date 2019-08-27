@@ -5,6 +5,10 @@
   padding: 25px;
   font-size: 30px;
   font-family: cursive;
+  height: 40px;
+  border: 1px solid #000;
+  margin-top: 5px;
+  margin-bottom: 50px;
 }
 
 body {
@@ -17,12 +21,20 @@ body ul li {
 
 body ul li a{
   font-size: 40px;
-  /* text-decoration: none; */
+  text-decoration: none;
   color: #000;
   font-family: Arial, sans-serif;
+  font-weight: bold;
   padding-top: 10px;
   margin: 10px;
   text-align: center;
+  text-shadow: 1px 1px 1px #F90;
+}
+
+body ul li a:hover {
+  text-decoration: underline;
+  color: #F90;
+  text-shadow: 1px 1px 1px #000;
 }
 
 #menu {
@@ -69,6 +81,7 @@ body ul li a{
 
 body h2 {
   font-size: 40px;
+  text-align: center;
 }
 
 /* .member {
@@ -79,7 +92,7 @@ display: inline;
 #member-wrapper .member p {
   display: inline;
   /* border-bottom: 1px solid #000; */
-  padding: 10px;
+  padding: 5px;
   /* border-right: 1px solid #000; */
 }
 
@@ -97,14 +110,20 @@ display: inline;
 }
 
 #lesson-wrapper .lesson h3 {
-  font-size: 30px;
+  font-size: 25px;
+  color: #000;
+  margin-bottom: 5px;
+}
+
+#lesson-wrapper .lesson h3 a {
+  font-size: 25px;
   color: #000;
 }
 
 #lesson-wrapper .lesson p {
   display: inline;
   /* border-bottom: 1px solid #000; */
-  padding: 10px;
+  padding: 5px;
   /* border-right: 1px solid #000; */
 }
 
@@ -116,10 +135,92 @@ display: inline;
   border-right: none;
 }
 
-#member-wrapper .lesson form {
+#lesson-wrapper .lesson form {
   float: right;
   /* margin-right: 200px; */
 }
+
+form.new_item {
+  background-color: #F90;
+  padding: 10px;
+  text-align: left;
+  margin-left: 350px;
+  margin-right: 350px;
+  border: solid 1px #000;
+}
+
+form input#name {
+  background-color: #FFF;
+  text-align: right;
+}
+
+div {
+  padding: 10px;
+}
+
+input#forename {
+  float:right;
+  padding-right: 50px;
+}
+
+input#surname {
+  float:right;
+  padding-right: 50px;
+}
+
+input#dob {
+  float:right;
+  padding-right: 50px;
+}
+
+input#phone {
+  float:right;
+  padding-right: 50px;
+}
+
+input#email {
+  float:right;
+  padding-right: 50px;
+}
+
+input#email {
+  float:right;
+  padding-right: 50px;
+}
+
+input#premium {
+  float:right;
+  padding-right: 50px;
+}
+
+input#name {
+  float:right;
+  padding-right: 50px;
+}
+
+input#capacity {
+  float:right;
+  padding-right: 50px;
+}
+
+input#lesson_date {
+  float:right;
+  padding-right: 50px;
+}
+
+input#duration {
+  float:right;
+  padding-right: 50px;
+}
+
+
+
+
+
+
+
+
+
 
 
 /* li.menu-item a#onlink {
