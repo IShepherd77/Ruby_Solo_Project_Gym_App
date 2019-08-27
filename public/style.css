@@ -1,12 +1,35 @@
+#gym_name {
+  color: red;
+  background-color: #F90;
+  text-align: right;
+  padding: 25px;
+  font-size: 30px;
+  font-family: cursive;
+}
+
 body {
   background-color: #f4f4f4;
 }
 
+body ul li {
+  margin: 20px;
+}
+
+body ul li a{
+  font-size: 50px;
+  /* text-decoration: none; */
+  color: #000;
+  font-family: Arial, sans-serif;
+  padding-top: 10px;
+  margin: 10px;
+  text-align: center;
+}
+
 #menu {
-height: 54px;
-border-bottom: 1px solid #000;
-width: auto;
-padding-left: 25px;
+  height: 54px;
+  border-bottom: 1px solid #000;
+  width: auto;
+  padding-left: 25px;
 }
 
 #menu li {
@@ -37,11 +60,11 @@ padding-left: 25px;
 }
 
 #menu li a:hover {
-background-color: #FFF;
-color: #000; /* white */
-text-shadow: 1px 1px 1px #000; /* black */
-border: solid 1px;
-border-bottom: none;
+  background-color: #FFF;
+  color: #000; /* white */
+  text-shadow: 1px 1px 1px #000; /* black */
+  border: solid 1px;
+  border-bottom: none;
 }
 
 body h2 {
@@ -49,29 +72,28 @@ body h2 {
 }
 
 /* .member {
-  font-size: 15px;
-  display: inline;
+font-size: 15px;
+display: inline;
 } */
 
 #member-wrapper .member p {
   display: inline;
   /* border-bottom: 1px solid #000; */
-  padding: 5px;
+  padding: 10px;
   /* border-right: 1px solid #000; */
 }
 
 #member-wrapper .member p a {
   display: inline;
   /* border-bottom: 1px solid #000; */
-color: red;
-padding-left: 50px;
-border-right: none;
+  color: red;
+  padding-left: 50px;
+  border-right: none;
 }
 
-form {
-
+#member-wrapper .member form {
   float: right;
-  margin-right: 250px;
+  margin-right: 100px;
 }
 
 #lesson-wrapper .lesson h3 {
@@ -79,6 +101,25 @@ form {
   color: #000;
 }
 
+#lesson-wrapper .lesson p {
+  display: inline;
+  /* border-bottom: 1px solid #000; */
+  padding: 10px;
+  /* border-right: 1px solid #000; */
+}
+
+#lesson-wrapper .lesson p a {
+  display: inline;
+  /* border-bottom: 1px solid #000; */
+  color: red;
+  padding-left: 50px;
+  border-right: none;
+}
+
+#member-wrapper .lesson form {
+  float: right;
+  /* margin-right: 200px; */
+}
 
 
 /* li.menu-item a#onlink {
