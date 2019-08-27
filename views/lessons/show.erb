@@ -4,7 +4,7 @@
   <% @lessons.each do |lesson| %>
 
   <div class="lesson">
-    <h3><a href="/lessons/<%= lesson.id %>"><%= lesson.name %></a></h3>
+    <h3><a href="/lessons/<%= lesson.id %>"><%= lesson.name.capitalize %></a></h3>
 
     <p>Date: <%= lesson.lesson_date.strftime('%d/%m/%Y') %></p>
     <p>Start Time: <%= lesson.start_time.strftime('%H:%M') %></p>
