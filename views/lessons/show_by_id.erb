@@ -9,7 +9,7 @@
     <label for="member_id">Member:</label>
     <select name="member_id" id="member_id">
       <% @all_members.each do |member| %>
-      <option value="<%= member.id %>"><%= member.forename + member.surname %></option>
+      <option value="<%= member.id %>"><%= member.forename + " " + member.surname %></option>
       <% end %>
     </select>
     <input type="hidden" name="lesson_id" value="<%= @lesson.id %>">
