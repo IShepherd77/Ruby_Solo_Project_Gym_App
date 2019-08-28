@@ -1,7 +1,14 @@
+img {
+  /* border: 1px solid; */
+  width: 30%;
+  float:right;
+  margin-right: 100px;
+}
+
 #gym_name {
   color: red;
   background-color: #F90;
-  text-align: right;
+  text-align: left;
   padding: 25px;
   font-size: 30px;
   font-family: cursive;
@@ -166,6 +173,16 @@ form.edit_lesson #name {
 form input#name {
   background-color: #FFF;
   text-align: right;
+}
+
+
+form.edit_member {
+  background-color: #F90;
+  padding: 10px;
+  text-align: left;
+  margin-left: 35%;
+  margin-right: 35%;
+  border: solid 1px #000;
 }
 
 div {
