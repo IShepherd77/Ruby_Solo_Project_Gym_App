@@ -10,7 +10,10 @@
     <p>Start Time: <%= lesson.start_time.strftime('%H:%M') %></p>
     <p>Duration: <%= lesson.duration %> mins</p>
     <p>Capacity: <%= lesson.capacity %></p>
-    <p><a href="/lessons/<%= lesson.id %>/edit">Edit</a></p>
+    <!-- <p><a href="/lessons/<%= lesson.id %>/edit">Edit</a></p> -->
+    <form method="get" action="/lessons/<%= lesson.id %>/edit">
+      <input type="submit" value="Edit"/>
+    </form>
     <form method="post" action="/lessons/<%= lesson.id %>/delete">
       <input type="submit" value="Delete"/>
     </form>

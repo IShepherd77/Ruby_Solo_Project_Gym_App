@@ -48,7 +48,7 @@ post '/lessons/:id' do # update
   redirect to '/lessons'
 end
 
-post '/lessons/:id/delete' do
+post '/lessons/:id/delete' do #delete
   lesson = Lesson.find(params['id'])
   lesson.delete
   redirect to '/lessons'

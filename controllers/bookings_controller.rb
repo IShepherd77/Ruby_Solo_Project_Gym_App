@@ -9,3 +9,9 @@ post '/bookings' do # create
   @booking.save()
   redirect to ('/lessons/' + params['lesson_id'])
 end
+
+post '/bookings/:id/delete' do #delete
+  booking = Booking.find(params['id'])
+  booking.delete
+  redirect to '/lessons' + params['lesson_id']
+end

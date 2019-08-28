@@ -144,9 +144,23 @@ form.new_item {
   background-color: #F90;
   padding: 10px;
   text-align: left;
-  margin-left: 350px;
-  margin-right: 350px;
+  margin-left: 35%;
+  margin-right: 35%;
   border: solid 1px #000;
+}
+
+form.edit_lesson {
+  background-color: #F90;
+  padding: 10px;
+  text-align: left;
+  margin-left: 35%;
+  margin-right: 35%;
+  border: solid 1px #000;
+}
+
+form.edit_lesson #name {
+  background-color: #FFF;
+  text-align: right;
 }
 
 form input#name {
