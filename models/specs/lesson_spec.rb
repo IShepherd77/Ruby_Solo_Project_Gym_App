@@ -29,7 +29,7 @@ class TestLesson < MiniTest::Test
     result = @lesson.lesson_date.strftime('%d/%m/%Y')
     assert_equal("24/08/2019", result)
   end
-  
+
   def test_lesson_start_time_excl_sec()
     result = @lesson.start_time.strftime('%H:%M')
     assert_equal("19:01", result)

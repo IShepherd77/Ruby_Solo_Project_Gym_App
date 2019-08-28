@@ -26,77 +26,77 @@ class Lesson
 
 
   def save()
-  sql = "INSERT INTO lessons
-  (
-    name, capacity, lesson_date, start_time, duration
-  )
-  VALUES
-  (
-    $1, $2, $3, $4, $5
-  )
-  RETURNING id"
-  values = [@name, @capacity, @lesson_date, @start_time, @duration]
-  result = SqlRunner.run(sql, values)
-  id = result.first["id"]
-  @id = id.to_i
-end
+    sql = "INSERT INTO lessons
+    (
+      name, capacity, lesson_date, start_time, duration
+    )
+    VALUES
+    (
+      $1, $2, $3, $4, $5
+    )
+    RETURNING id"
+    values = [@name, @capacity, @lesson_date, @start_time, @duration]
+    result = SqlRunner.run(sql, values)
+    id = result.first["id"]
+    @id = id.to_i
+  end
 
-def self.find(id)
-  sql = "SELECT * FROM lessons
-  WHERE id = $1"
-  values = [id]
-  result = SqlRunner.run(sql ,values).first
-  # binding.pry
-  lesson = Lesson.new(result)
-  return lesson
-end
+  def self.find(id)
+    sql = "SELECT * FROM lessons
+    WHERE id = $1"
+    values = [id]
+    result = SqlRunner.run(sql ,values).first
+    # binding.pry
+    lesson = Lesson.new(result)
+    return lesson
+  end
 
-def self.all()
-  sql = "SELECT * FROM lessons ORDER BY lesson_date + start_time ASC"
-  lesson_data = SqlRunner.run(sql) #array of hash objects
-  lessons = map_items(lesson_data)
-  return lessons
-end
+  def self.all()
+    sql = "SELECT * FROM lessons ORDER BY lesson_date + start_time ASC"
+    lesson_data = SqlRunner.run(sql) #array of hash objects
+    lessons = map_items(lesson_data)
+    return lessons
+  end
 
-#find all upcoming lessons within specified hours
-def self.upcoming()
-  sql = "SELECT * from lessons
-  WHERE ((lesson_date + start_time) >= now())
-  AND ((lesson_date + start_time) <= (now() + interval '24 hours'))
-  ORDER BY lesson_date + start_time ASC"
-  lesson_data = SqlRunner.run(sql) #array of hash objects
-  lessons = map_items(lesson_data)
-  return lessons
-end
+  #find all upcoming lessons within specified hours
+  def self.upcoming()
+    sql = "SELECT * from lessons
+    WHERE ((lesson_date + start_time) >= now())
+    AND ((lesson_date + start_time) <= (now() + interval '24 hours'))
+    ORDER BY lesson_date + start_time ASC"
+    lesson_data = SqlRunner.run(sql) #array of hash objects
+    lessons = map_items(lesson_data)
+    return lessons
+  end
 
-def self.map_items(lesson_data)
-  return lesson_data.map { |lesson| Lesson.new(lesson) }
-end
+  def self.map_items(lesson_data)
+    return lesson_data.map { |lesson| Lesson.new(lesson) }
+  end
 
-def delete()
-  sql = "DELETE FROM lessons
-  WHERE id = $1"
-  values = [@id]
-  SqlRunner.run(sql, values)
-end
+  def delete()
+    sql = "DELETE FROM lessons
+    WHERE id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
 
-def self.delete_all()
-  sql = "DELETE FROM lessons"
-  SqlRunner.run(sql)
-end
+  def self.delete_all()
+    sql = "DELETE FROM lessons"
+    SqlRunner.run(sql)
+  end
 
-def update()
+  def update()
     sql = "UPDATE lessons
     SET
     (
       name, capacity, lesson_date, start_time, duration
-    ) =
-    (
-      $1, $2, $3, $4, $5
-    )
-    WHERE id = $6"
-    values = [@name, @capacity, @lesson_date, @start_time, @duration, @id]
-    SqlRunner.run(sql, values)
-  end
+      ) =
+      (
+        $1, $2, $3, $4, $5
+      )
+      WHERE id = $6"
+      values = [@name, @capacity, @lesson_date, @start_time, @duration, @id]
+      SqlRunner.run(sql, values)
+    end
 
-end
+  end

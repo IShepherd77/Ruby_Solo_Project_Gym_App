@@ -5,6 +5,7 @@
   <div>
     <label for="name">Name:</label>
     <input
+    required
     type="text"
     name="name"
     id="name"
@@ -14,6 +15,7 @@
   <div>
     <label for="capacity">Capacity:</label>
     <input
+    required
     type="text"
     name="capacity"
     id="capacity"
@@ -23,6 +25,7 @@
   <div>
     <label for="lesson_date">Class Date:</label>
     <input
+    required
     type="text"
     name="lesson_date"
     id="lesson_date"
@@ -30,11 +33,11 @@
   </div>
 
 
-   <div>
+  <div>
     <label for="start_hour">Start Time:</label>
     <select name="start_hour" id="start_hour">
       <% (0..23).each do |hour| %>
-        <option value="<%= hour %>"><%= hour %></option>
+      <option value="<%= hour %>"><%= hour %></option>
       <% end %>
     </select>:
     <select name="start_min" id="start_min">
@@ -48,6 +51,7 @@
   <div>
     <label for="duration">Duration:</label>
     <input
+    required
     type="text"
     name="duration"
     id="duration"

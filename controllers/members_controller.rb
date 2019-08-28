@@ -27,7 +27,6 @@ get '/members/:id/edit' do # edit
   erb( :'members/edit' )
 end
 
-
 post '/members/:id' do # update /edit
   # binding.pry
   params['dob']=Date.strptime(params['dob'],'%d/%m/%Y')

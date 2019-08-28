@@ -41,11 +41,14 @@ class Booking
     SqlRunner.run(sql)
   end
 
-  def delete_member_from_class()
-    sql = "DELETE FROM bookings
-    WHERE member_id = $1"
-    values = [@id]
-    SqlRunner.run(sql, values)
+  # Return object that corresponds to given id
+  def self.find(id)
+    sql = "SELECT * FROM bookings
+    WHERE id = $1"
+    values = [id]
+    result = SqlRunner.run(sql ,values).first
+    booking = Booking.new(result)
+    return booking
   end
 
 end
