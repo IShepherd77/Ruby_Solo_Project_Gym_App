@@ -17,7 +17,10 @@
     <form method="post" action="/lessons/<%= lesson.id %>/delete">
       <input type="submit" value="Delete"/>
     </form>
-    <p><a href="/lessons/<%= lesson.id %>">View members on class</a></p>
+    <!-- <p><a href="/lessons/<%= lesson.id %>">View members on class</a></p> -->
+    <form method="get" action="/lessons/<%= lesson.id %>">
+      <input type="submit" value="View members on class"/>
+    </form>
   </div>
 <hr>
   <% end %>
