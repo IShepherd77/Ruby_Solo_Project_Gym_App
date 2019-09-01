@@ -15,13 +15,13 @@ class Lesson
     @start_time = options['start_time']
     @duration = options['duration']
 
-    if @lesson_date.class !=Date
+    if @lesson_date.class !=Date #check if lesson date is string or Date object
       @lesson_date=(Date.parse(@lesson_date))#converting database string date to Ruby date object
     end
-    if @start_time.class !=Time
-      time_array = @start_time.split(':') #converting database string time to Ruby date/time object
+    if @start_time.class !=Time #check if start time is string or Time object
+      time_array = @start_time.split(':') #converting database string time to Ruby Date/Time object
       @start_time = Time.new(@lesson_date.year, @lesson_date.month, @lesson_date.mday, time_array[0].to_i, time_array[1].to_i)
-    end
+    end #return date and time and strip out the time hour and munute elements only and convert to Integer
   end
 
 
